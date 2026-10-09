@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Willard Ernest Aplaon | IT Specialist</title>
+<meta name="description" content="Portfolio of Willard Ernest Aplaon, an IT specialist who builds websites, designs interfaces, and develops hardware-integrated systems.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Cpath d='M6 34h14l6-10 8 24 6-14h18' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f7f8;
+    --panel: #ffffff;
+    --ink: #14232b;
+    --muted: #4d6069;
+    --line: #d5dee2;
+    --accent: #0f766e;
+    --accent-ink: #ffffff;
+    --tint: #e3f0ee;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --text: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0f1a1f;
+      --panel: #16252b;
+      --ink: #e6eef0;
+      --muted: #9db0b8;
+      --line: #28393f;
+      --accent: #5ec4b6;
+      --accent-ink: #0f1a1f;
+      --tint: #1a2f33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0f1a1f;
+    --panel: #16252b;
+    --ink: #e6eef0;
+    --muted: #9db0b8;
+    --line: #28393f;
+    --accent: #5ec4b6;
+    --accent-ink: #0f1a1f;
+    --tint: #1a2f33;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
+  p { margin: 0 0 1em; }
+  .wrap { width: min(100% - 2.5rem, 56rem); margin-inline: auto; }
+
+  /* Top bar */
+  .bar { padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+  .bar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .bar strong { font-family: var(--display); font-weight: 800; }
+  .bar nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .bar nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  .bar nav a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero { padding: clamp(3rem, 8vw, 6rem) 0 2.5rem; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+  .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 800; }
+  .role { font-family: var(--display); font-weight: 600; font-size: clamp(1.15rem, 3vw, 1.5rem); color: var(--accent); margin: 0.9rem 0 1rem; }
+  .intro { max-width: 36rem; color: var(--muted); font-size: 1.15rem; }
+  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .btn { display: inline-block; padding: 0.7rem 1.25rem; border-radius: 6px; font-weight: 600; text-decoration: none; border: 2px solid var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.ghost { color: var(--accent); }
+  .btn:hover { filter: brightness(1.08); }
+  .photo { width: clamp(8rem, 20vw, 12rem); aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--tint); display: grid; place-items: center; border: 3px solid var(--line); }
+  .photo > * { grid-area: 1 / 1; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo span { font-family: var(--display); font-weight: 800; font-size: 3rem; color: var(--accent); }
+
+  /* The one memorable element: a pulse line that draws itself once */
+  .pulse { width: 100%; height: 72px; display: block; margin-top: 1rem; }
+  .pulse path { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.4s ease-out 0.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .pulse path { animation: none; stroke-dashoffset: 0; }
+  }
+
+  /* Sections */
+  section { padding: 2.75rem 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: clamp(1.7rem, 4vw, 2.25rem); font-weight: 800; margin-bottom: 1.25rem; }
+  .about { max-width: 42rem; }
+
+  /* Projects as rows, not identical cards */
+  .project { display: grid; grid-template-columns: 12rem 1fr; gap: 0.5rem 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+  .project:first-of-type { padding-top: 0; }
+  .project:last-of-type { border-bottom: 0; padding-bottom: 0; }
+  .project h3 { font-size: 1.35rem; font-weight: 800; }
+  .kind { color: var(--muted); font-size: 0.95rem; margin-top: 0.35rem; }
+  .project p { margin-bottom: 0.75rem; max-width: 40rem; }
+  .tags { list-style: none; padding: 0; margin: 0 0 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tags li { background: var(--tint); color: var(--ink); padding: 0.15rem 0.7rem; border-radius: 999px; font-size: 0.95rem; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem 2.5rem; margin: 0; }
+  .skills dt { font-family: var(--display); font-weight: 600; margin-bottom: 0.15rem; }
+  .skills dd { margin: 0; color: var(--muted); }
+  .skills .wide { grid-column: 1 / -1; }
+
+  /* Lists */
+  .plain { list-style: none; padding: 0; margin: 0; }
+  .plain li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  .plain li:last-child { border-bottom: 0; }
+  .plain time { color: var(--muted); white-space: nowrap; }
+
+  .contact p { max-width: 36rem; }
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+
+  @media (max-width: 40rem) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .photo { order: -1; }
+    .project { grid-template-columns: 1fr; }
+    .skills { grid-template-columns: 1fr; }
+    .plain li { flex-direction: column; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <strong>Willard Ernest Aplaon</strong>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Willard Ernest Aplaon</h1>
+        <p class="role">IT specialist, web developer, designer</p>
+        <p class="intro">I build websites and interfaces, and connect them to hardware, like a health monitor that reports to a web dashboard and a cashier system that prints a 3D model at checkout.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="photo">
+        <!-- Upload your photo to this repository as photo.jpg and it will show here. -->
+        <img src="photo.jpg" alt="Portrait of Willard Ernest Aplaon" onerror="this.remove()">
+        <span aria-hidden="true">WA</span>
+      </div>
+    </div>
+    <div class="wrap">
+      <svg class="pulse" viewBox="0 0 1200 80" preserveAspectRatio="none" role="presentation" aria-hidden="true">
+        <path pathLength="1" d="M0 40 H260 L280 40 L292 30 L304 40 H420 L432 46 L446 4 L462 76 L474 40 H600 L618 28 L640 40 H1200"/>
+      </svg>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="about">
+        <p>IT specialist with hands-on experience building websites, designing user interfaces, and developing hardware-integrated systems, including an Arduino-based health monitor with a web dashboard and a point-of-sale system that prints 3D models.</p>
+        <p>I work in Java, Python, JavaScript, HTML, CSS, and PHP, with a foundation in databases, networking, and security. I'm looking for an opportunity where I can apply my technical and creative abilities to build reliable, user-friendly solutions while continuing to grow as a professional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <div>
+          <h3>ArduinoMyHealth</h3>
+          <div class="kind">Personal project</div>
+        </div>
+        <div>
+          <p>An Arduino-based device that measures heart rate (BPM), blood oxygen level, and body water level. A website fetches the device's readings and displays the results.</p>
+          <ul class="tags"><li>Arduino</li><li>Web dashboard</li></ul>
+          <a href="https://arduinomyhealth.onrender.com/" target="_blank" rel="noopener">Open the live site</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <h3>POS system with 3D model printing</h3>
+          <div class="kind">Academic project</div>
+        </div>
+        <div>
+          <p>A cashier-style point-of-sale system that prints out a 3D model at checkout, the way a cashier issues a receipt.</p>
+          <ul class="tags"><li>Java</li><li>HTML</li><li>CSS</li></ul>
+        </div>
+      </article>
+
+      <article class="project">
+        <div>
+          <h3>Website development and design</h3>
+          <div class="kind">Freelance projects</div>
+        </div>
+        <div>
+          <p>Websites designed and built from layout and styling to content structure.</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Technical skills</h2>
+      <dl class="skills">
+        <div><dt>Programming languages</dt><dd>Java, Python, JavaScript, C#</dd></div>
+        <div><dt>Web development</dt><dd>HTML, CSS, PHP, JavaScript, React.js, Responsive Web Design</dd></div>
+        <div><dt>Mobile development</dt><dd>Android Studio, Java, Android UI, REST API Integration</dd></div>
+        <div><dt>Database</dt><dd>MySQL, SQL, Firebase, JDBC, CRUD Operations</dd></div>
+        <div><dt>Software and development tools</dt><dd>Visual Studio Code, Android Studio, GitHub, Unity, Figma, Framer, Canva</dd></div>
+        <div><dt>UI/UX</dt><dd>Figma, Dashboard Design</dd></div>
+        <div><dt>Hardware and IoT</dt><dd>Arduino</dd></div>
+        <div class="wide"><dt>Other technical skills</dt><dd>Object-Oriented Programming, Data Structures, System Analysis, Database Management, Software Development Life Cycle, Network Security, System Administration</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <div class="wrap">
+      <h2>Certificates</h2>
+      <ul class="plain">
+        <li><span>Network Support and Security</span><time datetime="2025-04-22">Apr 22, 2025</time></li>
+        <li><span>Network Defense</span><time datetime="2025-02-28">Feb 28, 2025</time></li>
+        <li><span>Network Addressing and Basic Troubleshooting</span><time datetime="2025-02-03">Feb 3, 2025</time></li>
+        <li><span>Networking Devices and Initial Configuration</span><time datetime="2024-11-18">Nov 18, 2024</time></li>
+        <li><span>Networking Basics</span><time datetime="2024-11-16">Nov 16, 2024</time></li>
+        <li><span>Exploring Networking with Cisco Packet Tracer</span><time datetime="2024-11-11">Nov 11, 2024</time></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <ul class="plain">
+        <li><span>Bachelor of Science in Information Technology, Bulacan State University</span><time>2023 to 2027</time></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>Open to internships and job opportunities. The fastest way to reach me is by email.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:willardaplaon09@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://github.com/welyard" target="_blank" rel="noopener">GitHub profile</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Willard Ernest Aplaon. Based in Bulacan, Philippines.</div>
+</footer>
+
+</body>
+</html>
